@@ -1,3 +1,5 @@
+set -eux
+
 curl -L https://bit.ly/n-install | bash
 
 n rm lts
