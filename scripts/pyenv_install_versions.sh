@@ -1,6 +1,7 @@
 set -eux
 
 pyenv install 3.9.6
-echo Python installed successfully..!
-read -p "Press enter to continue..!"
 
+pyenv global 3.9.6
+
+pip install -r requirements.txt
