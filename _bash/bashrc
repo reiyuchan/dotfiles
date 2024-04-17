@@ -36,18 +36,14 @@ case "$TERM" in
 esac
 
 # prompt customization
-COLOR_USR="\[\033[32m\]"
+COLOR_USER="\[\033[32m\]"
 COLOR_DIR="\[\033[94m\]"
-COLOR_GIT="\[\033[31m\]"
-COLOR_PROMPT_MARK="\[\033[00m\]"
-
-# show git branch in the prompt
-source ~/dotfiles/_git/git-prompt.sh &>/dev/null
+COLOR_PROMPT_SYMBOL="\[\033[00m\]"
 
 if [ "$color_prompt" == yes ]; then
-	PS1="$COLOR_USR\u@\h$COLOR_DIR\w$COLOR_GIT$(__git_ps1)$COLOR_PROMPT_MARK\$ "
+	PS1="$COLOR_USER\u@\h$COLOR_DIR\w$COLOR_PROMPT_SYMBOL\$ "
 else
-	PS1='\u@\h:\w$(__git_ps1)\$ '
+	PS1="\u@\h:\w\$ "
 fi
 
 # Enable color support
@@ -60,9 +56,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
-
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Navigation
 alias ..='cd ..'
@@ -100,9 +93,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# ssh agent
-eval "$(ssh-agent -s)" &>/dev/null
 
 # pyenv configuration
 export PYENV_ROOT="$HOME/.pyenv"
