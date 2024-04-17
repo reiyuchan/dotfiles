@@ -10,6 +10,7 @@ for /f "delims=" %%i in ('dir /A:D /b ^| find "_"') do (
 	echo ^"%%i" not found..
 	echo ERROR:Failed to install..
 	exit /b
+	)
 	cd %%i
 	install.bat
 	cd ..
