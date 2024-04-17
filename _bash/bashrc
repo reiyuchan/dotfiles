@@ -44,10 +44,11 @@ COLOR_PROMPT_MARK="\[\033[00m\]"
 # show git branch in the prompt
 source ~/dotfiles/_git/git-prompt.sh &>/dev/null
 
-if [ "$color_prompt" == yes]; then
+if [ "$color_prompt" == yes ]; then
 	PS1="$COLOR_USR\u@\h$COLOR_DIR\w$COLOR_GIT$(__git_ps1)$COLOR_PROMPT_MARK\$ "
 else
-	PS1='\u@\h:\w\$ '
+	PS1='\u@\h:\w$(__git_ps1)\$ '
+fi
 
 # Enable color support
 if [ -x /usr/bin/dircolors ]; then
