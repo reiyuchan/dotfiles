@@ -36,6 +36,41 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+# prompt customization
+COLOR_DEF=$'%f'
+COLOR_USR=$'%F{green}'
+COLOR_DIR=$'%F{33}'
+COLOR_GIT=$'%F{red}'
+
+# show git branch in the prompt
+source ~/dotfiles/_git/git-prompt.sh &>/dev/null
+
+setopt PROMPT_SUBST
+export PROMPT='${COLOR_USR}%n@%m ${COLOR_DIR}%~ ${COLOR_GIT}$(__git_ps1)${COLOR_DEF} %% '
+
+# Terminal window title
+autoload -Uz vcs_info
+case $TERM in
+  termite|*xterm*|rxvt|rxvt-unicode|rxvt-256color|rxvt-unicode-256color|(dt|k|E)term)
+    precmd () {
+      vcs_info
+      print -Pn "\e]0;%n@%M%~%#\a"
+    }
+    preexec () { print -Pn "\e]0;%n@%M%~%# ($1)\a" }
+    ;;
+  screen|screen-256color)
+    precmd () {
+      vcs_info
+      print -Pn "\e]83;title \"$1\"\a"
+      print -Pn "\e]0;$TERM - (%L) %n@%M%# %~\a"
+    }
+    preexec () {
+      print -Pn "\e]83;title \"$1\"\a"
+      print -Pn "\e]0;$TERM - (%L) %n@%M%# %~ ($1)\a"
+    }
+    ;;
+esac
+
 # Enable color support
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -116,36 +151,3 @@ eval "$(~/.rbenv/bin/rbenv init - zsh)" &>/dev/null
 # golang
 export PATH=$PATH:~/go/bin
 
-# show git branch in the prompt
-source ~/dotfiles/_git/git-prompt.sh &>/dev/null
-
-# prompt customization
-COLOR_DEF=$'%f'
-COLOR_USR=$'%F{green}'
-COLOR_DIR=$'%F{33}'
-COLOR_GIT=$'%F{red}'
-setopt PROMPT_SUBST
-export PROMPT='${COLOR_USR}%n@%m ${COLOR_DIR}%~ ${COLOR_GIT}$(__git_ps1)${COLOR_DEF} %% '
-
-# Terminal window title
-autoload -Uz vcs_info
-case $TERM in
-  termite|*xterm*|rxvt|rxvt-unicode|rxvt-256color|rxvt-unicode-256color|(dt|k|E)term)
-    precmd () {
-      vcs_info
-      print -Pn "\e]0;%n@%M%~%#\a"
-    }
-    preexec () { print -Pn "\e]0;%n@%M%~%# ($1)\a" }
-    ;;
-  screen|screen-256color)
-    precmd () {
-      vcs_info
-      print -Pn "\e]83;title \"$1\"\a"
-      print -Pn "\e]0;$TERM - (%L) %n@%M%# %~\a"
-    }
-    preexec () {
-      print -Pn "\e]83;title \"$1\"\a"
-      print -Pn "\e]0;$TERM - (%L) %n@%M%# %~ ($1)\a"
-    }
-    ;;
-esac
