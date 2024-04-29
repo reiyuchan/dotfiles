@@ -4,6 +4,8 @@
 doskey c=cls
 doskey md=mkdir
 doskey fe=Explorer $*
+doskey x=exit
+doskey e=echo $*
 
 ::Navigation
 doskey cd = cd /d $*
