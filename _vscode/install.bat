@@ -2,7 +2,7 @@
 :: Released under the MIT license
 :: http://opensource.org/licenses/mit-license.php
 
-@echooff
+@echo off
 
 set DESTDIR=%APPDATA%\Code\User
 set DESTDIR_DATA=%USERPORFILE%\.vscode
