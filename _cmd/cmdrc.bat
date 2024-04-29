@@ -24,9 +24,6 @@ doskey ll=dir $*
 doskey mv=move $*
 doskey cp=copy $*
 
-::prompt customization
-set PROMPT=%USERNAME%@%COMPUTERNAME% %cd% %
-
 ::Functions for running wsl distros
 doskey arch=if "$1"=="run" (^
     wsl ~ -d Arch^
