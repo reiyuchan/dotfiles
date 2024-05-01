@@ -94,17 +94,17 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# nodenv configuration
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init - zsh 2>/dev/null)"
+
 # pyenv configuration
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - --path)" &>/dev/null
-
-# nodenv configuration
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init - bash)" &>/dev/null
+eval "$(pyenv init - --path 2>/dev/null)"
 
 # rbenv configurations
-eval "$(~/.rbenv/bin/rbenv init - bash)" &>/dev/null
+eval "$(~/.rbenv/bin/rbenv init - zsh 2>/dev/null)"
 
 # golang
 export PATH=$PATH:~/go/bin
