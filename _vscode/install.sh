@@ -15,7 +15,7 @@ DESTDIR3="$XDG_CONFIG_HOME/Code - OSS/User"
 
 DESTDIR_DATA="$HOME/.vscode/"
 DESTDIR2_DATA="$HOME/.vscode-insiders/"
-DESTDIR3_DATA3="$HOME/.vscode-oss/"
+DESTDIR3_DATA="$HOME/.vscode-oss/"
 
 mkdir -p "$DESTDIR" &>/dev/null
 mkdir -p "$DESTDIR2" &>/dev/null
