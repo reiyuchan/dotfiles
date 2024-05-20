@@ -21,7 +21,7 @@ if exist %DEST_DIR% (
 where /q git
 if %ERRORLEVEL% == 0 (
 	echo Downloading the files..
-	git clone "%GH_REPO_URL%" "%DEST_DIR%"
+	git clone "%GH_REPO_URL%" -b "%GH_BRANCH%" "%DEST_DIR%"
 	cd %DEST_DIR%
 	echo Installing..
 	install.bat
