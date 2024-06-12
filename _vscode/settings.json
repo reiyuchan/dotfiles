@@ -67,5 +67,7 @@
   ],
   "telemetry.telemetryLevel": "off",
   "update.mode": "manual",
-  "workbench.productIconTheme": "icons-carbon"
+  "workbench.productIconTheme": "icons-carbon",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferences.importModuleSpecifier": "non-relative"
 }
