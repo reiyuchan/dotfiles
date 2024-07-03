@@ -139,5 +139,6 @@ eval "$(pyenv init - --path 2>/dev/null)"
 eval "$(~/.rbenv/bin/rbenv init - zsh 2>/dev/null)"
 
 # golang
-export PATH=$PATH:~/go/bin
-
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init - zsh 2>/dev/null)"
