@@ -32,16 +32,23 @@ sudo apt-get install git -y
    ```
 3. Switch to the path where the files cloned <~/dotfiles>
 
+   #### Linux
    ```sh
-     cd ~/dotfiles
+      cd ~/dotfiles
    ```
-4. Run the script to install
+   
+   #### Windows
+   ```bat
+      cd %USERPROFILE%\dotfiles
+   ```
+5. Run the script to install
 
    #### Linux
    ```sh
-     ./install.sh
+      ./install.sh
    ```
+   
    #### Windows
    ```bat
-     .\install.bat
+      .\install.bat
    ```
