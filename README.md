@@ -23,15 +23,25 @@ sudo apt install git -y
 sudo apt-get install git -y
 ```
 
+### Installation
+
 1. Simply clone the repo using the command below
-```git
-  git clone https://github.com/reiyuchan/dotfiles.git ~/dotfiles
-```
-2. Switch to the path where the files cloned <~/dotfiles>
-```sh
-cd ~/dotfiles
-```
-3. Run the script to install
-```sh
-./install.sh
-```
+
+   ```git
+     git clone https://github.com/reiyuchan/dotfiles.git ~/dotfiles
+   ```
+3. Switch to the path where the files cloned <~/dotfiles>
+
+   ```sh
+     cd ~/dotfiles
+   ```
+4. Run the script to install
+
+   #### Linux
+   ```sh
+     ./install.sh
+   ```
+   #### Windows
+   ```bat
+     .\install.bat
+   ```
