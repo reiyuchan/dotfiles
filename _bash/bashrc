@@ -108,4 +108,6 @@ eval "$(~/.rbenv/bin/rbenv init - bash 2>/dev/null)"
 
 # go
 export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
+# starship
+eval "$(starship init bash)"
 
